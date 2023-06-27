@@ -71,7 +71,6 @@ class BasePage:
         field.clear()
         field.fill (text)
         
-        pass
     
     def field_fill_with_allure_step(self, locator:str, text:str, element_name:str) -> None:
         """
