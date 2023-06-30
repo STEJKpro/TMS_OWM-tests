@@ -12,7 +12,7 @@ class BasePage:
         :param url: адрес страницы
         :type url: str
         """
-        logging.debug('Перейти на страницу "{url}"')
+        logging.debug(f'Перейти на страницу "{url}"')
         self.page.goto(url)
         
     
@@ -22,8 +22,8 @@ class BasePage:
         :param url: адрес страницы
         :type url: str
         """
-        with allure.step('Перейти на страницу "{url}"'):
-            logging.debug('Перейти на страницу "{url}"')
+        with allure.step(f'Перейти на страницу "{url}"'):
+            logging.debug(f'Перейти на страницу "{url}"')
             self.page.goto(url)
         
     def check_url(self, url:str) -> bool:
