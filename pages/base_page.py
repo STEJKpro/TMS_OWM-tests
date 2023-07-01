@@ -1,6 +1,8 @@
-from playwright.sync_api import Page
 import logging
+
 import allure
+from playwright.sync_api import Page
+
 
 class BasePage:
     def __init__(self, page: Page):
@@ -16,7 +18,7 @@ class BasePage:
         self.page.goto(url)
         
     
-    def goto_with_allyre_step(self, url: str) -> None:
+    def goto_with_allure_step(self, url: str) -> None:
         """
         Метод перехода на указанную страницу сайта/приложения,
         :param url: адрес страницы
@@ -87,3 +89,7 @@ class BasePage:
             field = self.page.locator(locator)
             field.clear()
             field.fill (text)
+
+    def goto_if_not_url_with_allure_step(self, url):
+        """Метод для проверки соответствует ли url желаемому и перехода, в случае несоответствия"""
+        if self.page.url != url: self.page.goto(url)
