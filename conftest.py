@@ -14,25 +14,40 @@ logging.basicConfig(
     encoding="utf8",
 )
 
-@fixture()
-def page():
-    """
-    Фикстура для запуска и закрытия браузера
-    """
+
+@fixture(scope="session")
+def context():
+    """Открытие браузера"""
     with sync_playwright() as playwright:
         with allure.step(f'Открыть браузер'):
             logging.debug('Открытие браузера')
             browser = playwright.chromium.launch(headless=False)
             context = browser.new_context(viewport={'width': 1920, 'height': 1080})
-            # context = browser.new_context()
-            page = context.new_page()
-
-            yield page
-
+            
+            yield context
+            
         with allure.step(f'Закрыть браузер'):
             logging.debug('Закрытие браузера')
-            page.close()
+
             context.close()
             browser.close()
             logging.debug('Браузер закрыт')
+                   
             
+@fixture(scope="class")
+def page(context):
+    """
+    Создание новой страницы
+    """
+    with allure.step(f'Очистка данных сессии браузера'):
+        logging.debug('Очистка данных сессии браузера')
+        context.clear_cookies()
+        context.storage_state().clear()
+    with allure.step(f'Открыть страницу браузера'):
+        logging.debug('Открытие страницы браузера')
+    page = context.new_page()
+
+    yield page
+    with allure.step(f'Закрыть страницу браузера'):
+        logging.debug('Закрытие страницы браузера')
+        page.close()
