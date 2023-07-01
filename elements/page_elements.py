@@ -20,7 +20,7 @@ class ButtonElement(BaseElement):
 
     @property
     def element_discription(self) -> str:
-        return +f'Название: {self.name};' \
+        return f'Название: {self.name};' \
             + f'\nLocator: {self.locator};'\
             + f"\nТип: Кнопка"
 
