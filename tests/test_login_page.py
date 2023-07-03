@@ -65,9 +65,9 @@ class TestLoginPage():
         expect(notification, 'Сообщение об ошибке не найдено, либо текст ошибки не совпадает с предполагаемым').to_contain_text(notice_field.element_text)
         
         
-    @allure.title('Вход в аккаунт с корректными данными данными')
+    @allure.title('Вход в аккаунт с корректными данными')
     @allure.description('Проверяем корректонсть работы с корректными данными для входа')
-    def test_wrong_password_logining (self, login_page):
+    def test_correct_password_logining (self, login_page):
         #данные элементов используемых в тесте
         logging.debug(f"Начат тест проверки входа на страницу с корректными данными")
         
@@ -75,6 +75,8 @@ class TestLoginPage():
         password_field = ui_data.SIGNUP_FIELD_PASSWORD
         submit_button = ui_data.SIGNUP_BUTTON_SUBMIT
         notice_field = ui_data.SIGNUP_DYNAMIC_MESSAGE_FIELD_SUCCESS
+        
+        login_page.page.reload()
         
         login_page.goto_with_allure_step(LOGIN_PAGE_URL)
         login_page.field_fill_with_allure_step(email_field.name, email_field.locator, os.environ.get('OWM_LOGIN'))

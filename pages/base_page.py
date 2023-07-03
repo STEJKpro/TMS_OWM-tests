@@ -87,7 +87,7 @@ class BasePage:
         :param element_name: название элемента
         :type element_name: str
         """
-        with allure.step(f'Очистить поле "{element_name}" с локатором {locator} и значением {text}'):
+        with allure.step(f'Очистить поле "{element_name}" с локатором {locator} и ввод значения: {text}'):
             logging.debug(f'Ввод строки "{text}" в поле {element_name} с локатором "{locator}"')
             field = self.page.locator(locator)
             field.clear()
