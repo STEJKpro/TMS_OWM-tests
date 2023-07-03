@@ -51,7 +51,7 @@ class BasePage:
         logging.debug(f'Pressed button with locator: "{locator}"')
         self.page.locator(locator).click()
         
-    def click_with_allure_step(self, element_name:str, locator:str) -> None:
+    def click_with_allure_step(self, element_name:str, locator:str, *, modifiers: list=None) -> None:
         """
         Метод нажатия на кнопку по xpath с allure.step
         :param locator: xpath-локатор кнопки
@@ -61,7 +61,7 @@ class BasePage:
         """
         with allure.step(f'Нажать кнопку "{element_name}" с локатором: {locator}'):
             logging.debug(f'Нажать кнопку "{element_name}" с локатором "{locator}"')
-            self.page.locator(locator).click()
+            self.page.locator(locator).click(modifiers=modifiers)
             
     def field_fill(self, locator: str, text:str) -> None:
         """
@@ -77,7 +77,7 @@ class BasePage:
         field.fill (text)
         
     
-    def field_fill_with_allure_step(self, element_name:str, locator:str, text:str,) -> None:
+    def field_fill_with_allure_step(self, element_name:str, locator:str, text:str) -> None:
         """
         Метод нажатия на кнопку по xpath с allure.step
         :param locator: xpath-локатор кнопки

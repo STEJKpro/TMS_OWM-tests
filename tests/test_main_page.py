@@ -46,3 +46,20 @@ class TestMainPage():
             button = main_page.page.locator(val.locator)
             expect(button).to_have_count(1)
     
+    @mark.parametrize(
+        "key, val", 
+        filter(
+            lambda x: (x[0].startswith('MAIN_') and 'DYNAMIC' not in x[0] and 'LINK' in x[0]),
+            ui_data.__dict__.items()
+            ),
+        )
+    @allure.title(f'Проверка наличия элемента на странице')
+    @allure.description('Проверяем существует ли элемент на странице')
+    def test_page_links(self, main_page, context, key, val):
+        logging.debug(f"Начат тест проверки перехода на страницe по кнопке {key}")
+        with allure.step(f"Проверяем правильность url страницы на которую перешли url Фактический:{main_page.page.url} url предполагаемый:{val.href}"):   
+            with context.expect_page() as new_page_info:
+                main_page.click_with_allure_step(val.name, val.locator, modifiers=["Shift"])
+                new_page = new_page_info.value
+                expect(new_page).to_have_url(val.href)
+                new_page.close()
