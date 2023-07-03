@@ -97,3 +97,8 @@ class BasePage:
         """Метод для проверки соответствует ли url желаемому и перехода, в случае несоответствия"""
         with allure.step("Проверяем правильность текущего url"):
             if self.page.url != url: self.page.goto(url)
+            
+          
+    def get_element_text(self, locator: str) -> str:
+        """Метод возращает строку содержащую текст элемента"""            
+        return self.page.locator(locator).text_content()

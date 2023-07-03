@@ -26,4 +26,16 @@ MAIN_BUTTON_API_LINK = ButtonElement('Button to API page', 'xpath=/html/body/nav
 MAIN_BUTTON_DASHBOARD_LINK = ButtonElement('Button to DASHBOARD page', 'xpath=/html/body/nav/ul[1]/div/ul/li[3]/a', 'API', href='https://openweathermap.org/weather-dashboard')
 MAIN_BUTTON_MARKETPLACE_LINK = ButtonElement('Button to MARKETPLACE page', 'xpath=/html/body/nav/ul[1]/div/ul/li[4]/a', 'API', href='https://openweathermap.org/weather-dashboard')
 MAIN_BUTTON_PRICE_LINK = ButtonElement('Button to Price page', 'xpath=/html/body/nav/ul[1]/div/ul/li[5]/a', 'Price', href='https://openweathermap.org/weather-dashboard')
-MAIN_BUTTON_OUR_INITIATIVES_LINK = ButtonElement('Button to our initiatives page', '/html/body/nav/ul[1]/div/ul/li[7]/a', 'Our Initiatives', href='https://openweathermap.org/our-initiatives')
+MAIN_BUTTON_OUR_INITIATIVES_LINK = ButtonElement('Button to our initiatives page', 'xpath=/html/body/nav/ul[1]/div/ul/li[7]/a', 'Our Initiatives', href='https://openweathermap.org/our-initiatives')
+MAIN_BUTTON_PARTNERS_LINK = ButtonElement('Button to partners page', 'xpath=/html/body/nav/ul[1]/div/ul/li[8]/a', 'Partners', href='https://openweathermap.org/examples')
+MAIN_BUTTON_BLOG_LINK = ButtonElement('Button to blog page', 'xpath=/html/body/nav/ul[1]/div/ul/li[9]/a', 'Blog', href='https://openweather.co.uk/blog/category/weather')
+MAIN_BUTTON_FOR_BUSINESS_LINK = ButtonElement('Button to for business page', 'xpath=/html/body/nav/ul[1]/div/ul/li[10]/a', 'For Business', href='https://openweather.co.uk/')
+MAIN_BUTTON_FAQ_LINK = ButtonElement('Button to FAQ page', 'xpath=/html/body/nav/ul[1]/div/ul/li[12]/ul/li[1]/a', 'FAQ', href='https://openweathermap.org/faq')
+MAIN_BUTTON_HOW_TO_START_LINK = ButtonElement('Button to How to start page', 'xpath=/html/body/nav/ul[1]/div/ul/li[12]/ul/li[2]/a', 'FAQ', href='https://openweathermap.org/appid')
+MAIN_BUTTON_ASK_A_QUESTION_LINK = ButtonElement('Button to How to start page', 'xpath=/html/body/nav/ul[1]/div/ul/li[12]/ul/li[3]/a', 'Ask a question', href='https://home.openweathermap.org/questions')
+
+MAIN_FIELD_SEARCH_CITY = FieldElement('Строка выбора города', 'xpath=/html/body/main/div[2]/div[1]/div/div/div[2]/div[1]/div/input', placeholder='Search city')
+MAIN_BUTTON_SEARCH = FieldElement('Кнопка поиска города', 'xpath=/html/body/main/div[2]/div[1]/div/div/div[2]/div[1]/button', 'Search')
+MAIN_DYNAMIC_1ST_CITY_SEARCH_RESULT = BaseElement('Превый элемент в результатах поиска города', 'xpath=/html/body/main/div[2]/div[1]/div/div/div[2]/div[1]/div/ul/li[1]/span[1]')
+MAIN_TEXT_CURRENT_TEMPERATURE = BaseElement('Текущая температура', 'xpath = /html/body/main/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/span')
+

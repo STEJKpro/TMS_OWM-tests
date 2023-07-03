@@ -12,6 +12,7 @@ class BaseElement:
     def element_discription(self) -> str:
         return f'Название: {self.name};' \
             + f'\nLocator: {self.locator};'
+            
     @property
     def type(self):
         return self._element_type
@@ -62,6 +63,4 @@ class CheckBoxElement(BaseElement):
         False - флаг снят
         """
         self.checked = not self.checked
-        
-        
         

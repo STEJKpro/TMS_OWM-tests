@@ -13,7 +13,10 @@ def login_page(page):
     return LoginPage(page)
 
 
+@allure.suite('Тесты страницы входа')
 class TestLoginPage():
+    """Тесты страницы входа"""
+    
     @allure.description('Проверка в действительности ли url страницы соответсвует url страницы входа')
     @allure.title("Проверка правильности url страницы входа")
     def test_logining_page(self, login_page):
