@@ -4,6 +4,8 @@ from dataclasses import dataclass, field
 class BaseElement:
     name: str
     locator: str
+    element_text:str =field(kw_only=True, default=None)
+    
     _element_type='BaseElement'
     
     @property
@@ -13,9 +15,12 @@ class BaseElement:
     @property
     def type(self):
         return self._element_type
+
+
 @dataclass
 class ButtonElement(BaseElement):
     button_text:str
+    href:str =field(kw_only=True, default=None)
     _element_type='Button'
 
     @property
@@ -23,6 +28,7 @@ class ButtonElement(BaseElement):
         return f'Название: {self.name};' \
             + f'\nLocator: {self.locator};'\
             + f"\nТип: Кнопка"
+
 
 @dataclass
 class FieldElement(BaseElement):
@@ -35,6 +41,7 @@ class FieldElement(BaseElement):
             + f'\nLocator: {self.locator};' \
             + (f'\nPlaceholder: {self.placeholder};' if self.placeholder else '' )\
             + f"\nТип: Поле"
+
 
 @dataclass
 class CheckBoxElement(BaseElement):
