@@ -3,7 +3,9 @@ import allure
 from playwright.sync_api import sync_playwright
 
 from pytest import fixture
+from dotenv import find_dotenv, load_dotenv
 
+load_dotenv(find_dotenv())
 
 """
 Настройка вывода логов
@@ -12,6 +14,7 @@ logging.basicConfig(
     level=logging.DEBUG,
     filename="logs/mylog.log",
     encoding="utf8",
+    filemode='w',
 )
 
 
@@ -48,6 +51,7 @@ def page(context):
     page = context.new_page()
 
     yield page
+    
     with allure.step(f'Закрыть страницу браузера'):
         logging.debug('Закрытие страницы браузера')
         page.close()
