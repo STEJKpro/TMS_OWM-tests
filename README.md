@@ -10,6 +10,7 @@
  ```
  git clone https://github.com/Michael02111/OpenWeatherMap-tests.git
  pip install -r requirements.txt
+ playwright install
  ```
  Перед запуском создайте файл .env в корневой дирректории проекта.  
  И внесите актуальные данные. Пример файла переменных окружения: [.env_examle](/.env_examlpe)
